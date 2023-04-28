@@ -7,7 +7,6 @@ package lab2p2_hectorsabillon;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 
 public class Lab2P2_HectorSabillon {
 
@@ -99,6 +98,9 @@ public class Lab2P2_HectorSabillon {
                                         break;
                                     case 3:
                                         de = "Historia Moderna";
+                                        break;
+                                    default:
+                                        System.out.println("Opcion no valida");
                                         break;
                                 }
                                 //fin entradas
@@ -307,6 +309,9 @@ public class Lab2P2_HectorSabillon {
                                         }
                                         ((Pinturas) cosas.get(indice1)).setInv(nuebo);
                                         break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                                        break;
                                 }
                                 break;
                             case 2:
@@ -341,6 +346,9 @@ public class Lab2P2_HectorSabillon {
                                         fechaes = new Date(Integer.parseInt(token3[2]) - 1900, Integer.parseInt(token3[1]) + 1, Integer.parseInt(token3[0]));
                                         ((Esculturas) cosas.get(indice2)).setFechaes(fechaes);
                                         break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                                        break;
                                     case 4:
                                         System.out.println("Ingrese nuevo departamento: ");
                                         int dep = sc.nextInt();
@@ -354,6 +362,9 @@ public class Lab2P2_HectorSabillon {
                                                 break;
                                             case 3:
                                                 de = "Historia Moderna";
+                                                break;
+                                            default:
+                                                System.out.println("Opcion no valida");
                                                 break;
                                         }
                                         ((Esculturas) cosas.get(indice2)).setDepartamento(de);
@@ -396,6 +407,9 @@ public class Lab2P2_HectorSabillon {
                                         }
                                         ((Fotografias) cosas.get(indice3)).setColor(color);
                                         break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                                        break;
                                 }
                                 break;
                             case 4:
@@ -434,9 +448,15 @@ public class Lab2P2_HectorSabillon {
                                         String nuevoautor = sc.nextLine();
                                         ((Escrituras) cosas.get(indice4)).setAutor(nuevoautor);
                                         break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                                        break;
                                 }
                                 break;
                         }
+                        break;
+                    default:
+                        System.out.println("Opcion no valida");
                         break;
                 }
             } else {
@@ -482,6 +502,9 @@ public class Lab2P2_HectorSabillon {
                                 cont4++;
                             }
                         }
+                        break;
+                    default:
+                        System.out.println("Opcion no valida");
                         break;
                 }
                 break;
