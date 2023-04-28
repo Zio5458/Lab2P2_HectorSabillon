@@ -6,10 +6,13 @@ package lab2p2_hectorsabillon;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Lab2P2_HectorSabillon {
 
     static Scanner sc = new Scanner(System.in);
+    static Date fechap;
+    static Date fechaa;
 
     public static void main(String[] args) {
         
@@ -43,6 +46,29 @@ public class Lab2P2_HectorSabillon {
                     sc.nextLine();
                     switch (a){
                         case 1:
+                            System.out.println("Ingrese nombre de la pintura: ");
+                            String nom = sc.nextLine();
+                            System.out.println("Ingrese nombre del autor: ");
+                            String autor = sc.nextLine();
+                            System.out.println("Ingrese fecha de presentacion [dd/MM/yyyy]");
+                            String fp = sc.nextLine();
+                            String token[] = fp.split("/");
+                            fechap = new Date(Integer.parseInt(token[2]), Integer.parseInt(token[1]), Integer.parseInt(token[0]));
+                            System.out.println("Ingrese fecha de adquisicon [dd/MM/yyyy]");
+                            String fa = sc.nextLine();
+                            String token2[] = fa.split("/");
+                            fechaa = new Date(Integer.parseInt(token2[2]), Integer.parseInt(token2[1]), Integer.parseInt(token[0]));
+                            System.out.println("Esta en exposicion o en bodega [s/n]");
+                            char c = sc.nextLine().charAt(0);
+                            boolean inv;
+                            if (c == 's'){
+                                inv = true;
+                            } else {
+                                inv = false;
+                            }
+                            //fin entradas
+                            
+                            
                             break;
                         case 2:
                             break;
