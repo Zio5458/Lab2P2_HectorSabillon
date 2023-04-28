@@ -285,19 +285,81 @@ public class Lab2P2_HectorSabillon {
                                     String fp = sc.nextLine();
                                     String token[] = fp.split("/");
                                     fechap = new Date(Integer.parseInt(token[2]) - 1900, Integer.parseInt(token[1]) + 1, Integer.parseInt(token[0]));
-                                    
+                                    ((Pinturas) cosas.get(indice11)).setFechap(fechap);
                                     break;
                                 case 4:
                                     System.out.println("Ingrese nueva fecha de adquisicion: ");
+                                    String fa = sc.nextLine();
+                                    String token2[] = fa.split("/");
+                                    fechap = new Date(Integer.parseInt(token2[2]) - 1900, Integer.parseInt(token2[1]) + 1, Integer.parseInt(token2[0]));
+                                    ((Pinturas) cosas.get(indice1)).setFechap(fechap);
                                     break;
                                 case 5:
-                                    System.out.println("Esta en exposicion o bodega: ");
+                                    System.out.println("Esta en exposicion o bodega: [s/n]");
+                                    char expnew = sc.nextLine().charAt(0);
+                                    boolean nuebo;
+                                    if (expnew == 's') {
+                                        nuebo = true;
+                                    } else {
+                                        nuebo = false;
+                                    }
+                                    ((Pinturas) cosas.get(indice1)).setInv(nuebo);
                                     break;
                             }
                             break;
                         case 2:
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Pinturas) {
+                                    System.out.println(i + "  <- " + cosas.get(i));
+                                }
+                            }
+                            System.out.println("Ingrese indice de objeto a modificar: ");
+                            int indice2 = sc.nextInt();
+                            System.out.println("1 <- Escultor"
+                                    + "\n2 <- Material"
+                                    + "\n3 <- Fecha de inicio"
+                                    + "\n4 <- Departamento");
+                            int o3 = sc.nextInt();
+                            sc.nextLine();
+                            switch (o3) {
+                                case 1:
+                                    System.out.println("Ingrese nuevo escultor: ");
+                                    String nuevoesc = sc.nextLine();
+                                    ((Esculturas) cosas.get(indice2)).setEscultor(nuevoesc);
+                                    break;
+                                case 2:
+                                    System.out.println("Ingrese nuevo material: ");
+                                    String nuevomat = sc.nextLine();
+                                    ((Esculturas) cosas.get(indice2)).setMaterial(nuevomat);
+                                    break;
+                                case 3:
+                                    System.out.println("Ingrese nueva fecha de inicio: ");
+                                    String fe = sc.nextLine();
+                                    String token3[] = fe.split("/");
+                                    fechaes = new Date(Integer.parseInt(token3[2]) - 1900, Integer.parseInt(token3[1]) + 1, Integer.parseInt(token3[0]));
+                                    ((Esculturas) cosas.get(indice2)).setFechaes(fechaes);
+                                    break;
+                                case 4:
+                                    System.out.println("Ingrese nuevo departamento: ");
+                                    int dep = sc.nextInt();
+                                    String de = "";
+                                    switch (dep) {
+                                        case 1:
+                                            de = "Arqueologia";
+                                            break;
+                                        case 2:
+                                            de = "Artes";
+                                            break;
+                                        case 3:
+                                            de = "Historia Moderna";
+                                            break;
+                                    }
+                                    ((Esculturas) cosas.get(indice2)).setDepartamento(de);
+                                    break;
+                            }
                             break;
                         case 3:
+                            
                             break;
                         case 4:
                             break;
