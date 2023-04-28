@@ -125,11 +125,66 @@ public class Lab2P2_HectorSabillon {
                             
                             break;
                         case 4:
+                            System.out.println("Ingrese cantidad de palabras: ");
+                            int pal = sc.nextInt();
+                            sc.nextLine();
+                            System.out.println("Ingrese epoca de redaccion: ");
+                            String epoca = sc.nextLine();
+                            System.out.println("Ingrese genero literario: ");
+                            String genero = sc.nextLine();
+                            System.out.println("Ingrese nombre del autor: ");
+                            String au = sc.nextLine();
+                            //fin entradas
+                            
+                            Escrituras escrit = new Escrituras(pal, epoca, genero, au);
                             
                             break;
                     }
                     break;
                 case 2:
+                    System.out.println("---ELIMINAR---"
+                            + "\n1 <- Pintura"
+                            + "\n2<- Escultura"
+                            + "\n3 <- Fotografia"
+                            + "\n4 <- Escritura");
+                    int o = sc.nextInt();
+                    switch (o){
+                        case 1:
+                            for (int i = 0; i < cosas.size(); i++){
+                                if (cosas.get(i) instanceof Pinturas){
+                                    System.out.println(i + " <- " + cosas.get(i));
+                                }
+                            }
+                            System.out.println("Ingrese el indice de la pintura a eliminar: ");
+                            int op1 = sc.nextInt();
+                            sc.nextLine();
+                            cosas.remove(op1);
+                            break;
+                        case 2:
+                            for (int i = 0; i < cosas.size(); i++){
+                                if (cosas.get(i) instanceof Esculturas){
+                                    System.out.println(i + " <- " + cosas.get(i));
+                                }
+                            }
+                            System.out.println("Ingrese el indice de la escultura a eliminar: ");
+                            int op2 = sc.nextInt();
+                            sc.nextLine();
+                            cosas.remove(op2);
+                            break;
+                        case 3:
+                            for (int i = 0; i < cosas.size(); i++){
+                                if (cosas.get(i) instanceof Fotografias){
+                                    System.out.println(i + " <- " + cosas.get(i));
+                                }
+                            }
+                            System.out.println("Ingrese el indice de la fotografia a eliminar: ");
+                            int op3 = sc.nextInt();
+                            sc.nextLine();
+                            cosas.remove(op3);
+                            break;
+                        case 4:
+                            break;
+                    }
                     break;
                 case 3:
                     break;
