@@ -4,10 +4,10 @@
  */
 package lab2p2_hectorsabillon;
 
-/**
- *
- * @author hdann
- */
+import java.util.ArrayList;
+
 public class Pinturas {
+    
+    private ArrayList pinturas = new ArrayList();
     
 }

@@ -10,10 +10,6 @@ import java.util.ArrayList;
 public class Lab2P2_HectorSabillon {
 
     static Scanner sc = new Scanner(System.in);
-    static ArrayList pinturas = new ArrayList();
-    static ArrayList esculturas = new ArrayList();
-    static ArrayList fotografias = new ArrayList();
-    static ArrayList escritos = new ArrayList();
 
     public static void main(String[] args) {
         
@@ -26,7 +22,43 @@ public class Lab2P2_HectorSabillon {
         String r = sc.nextLine();
         
         if (admin(r) && r.charAt(0) == 's'){
-            
+            System.out.println("---MENU ADMIN---"
+                    + "\n1 <- Crear"
+                    + "\n2 <- Eliminar"
+                    + "\n3 <- Listar"
+                    + "\n4 <- Modificar"
+                    + "\n5 <- Salir"
+                    + "\nIngrese una opcion: ");
+            int op = sc.nextInt();
+            sc.nextLine();
+            switch (op){
+                case 1:
+                    System.out.println("---AGREGAR---"
+                            + "\n1 <- Pintura"
+                            + "\n2 <- Escultura"
+                            + "\n3 <- Fotografia"
+                            + "\n4 <- Escritura"
+                            + "\nIngrese una opcion: ");
+                    int a = sc.nextInt();
+                    sc.nextLine();
+                    switch (a){
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
         }
         
     }
