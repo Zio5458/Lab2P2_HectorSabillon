@@ -7,6 +7,7 @@ package lab2p2_hectorsabillon;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 
 public class Lab2P2_HectorSabillon {
 
@@ -17,7 +18,7 @@ public class Lab2P2_HectorSabillon {
     static Date fechaes;
 
     public static void main(String[] args) {
-        
+
         System.out.println("---LOGIN---"
                 + "\nIngrese usuario: ");
         String u = sc.nextLine();
@@ -25,8 +26,8 @@ public class Lab2P2_HectorSabillon {
         String pass = sc.nextLine();
         System.out.println("Forma parte del personal administrativo? [s/n]: ");
         String r = sc.nextLine();
-        
-        if (admin(r) && r.charAt(0) == 's'){
+
+        if (admin(r) && r.charAt(0) == 's') {
             System.out.println("---MENU ADMIN---"
                     + "\n1 <- Crear"
                     + "\n2 <- Eliminar"
@@ -36,7 +37,7 @@ public class Lab2P2_HectorSabillon {
                     + "\nIngrese una opcion: ");
             int op = sc.nextInt();
             sc.nextLine();
-            switch (op){
+            switch (op) {
                 case 1:
                     System.out.println("---AGREGAR---"
                             + "\n1 <- Pintura"
@@ -46,7 +47,7 @@ public class Lab2P2_HectorSabillon {
                             + "\nIngrese una opcion: ");
                     int a = sc.nextInt();
                     sc.nextLine();
-                    switch (a){
+                    switch (a) {
                         case 1:
                             System.out.println("Ingrese nombre de la pintura: ");
                             String nom = sc.nextLine();
@@ -55,15 +56,15 @@ public class Lab2P2_HectorSabillon {
                             System.out.println("Ingrese fecha de presentacion [dd/MM/yyyy]");
                             String fp = sc.nextLine();
                             String token[] = fp.split("/");
-                            fechap = new Date(Integer.parseInt(token[2]), Integer.parseInt(token[1]), Integer.parseInt(token[0]));
+                            fechap = new Date(Integer.parseInt(token[2]) - 1900, Integer.parseInt(token[1]) + 1, Integer.parseInt(token[0]));
                             System.out.println("Ingrese fecha de adquisicon [dd/MM/yyyy]");
                             String fa = sc.nextLine();
                             String token2[] = fa.split("/");
-                            fechaa = new Date(Integer.parseInt(token2[2]), Integer.parseInt(token2[1]), Integer.parseInt(token[0]));
+                            fechaa = new Date(Integer.parseInt(token2[2]) - 1900, Integer.parseInt(token2[1]) + 1, Integer.parseInt(token[0]));
                             System.out.println("Esta en exposicion o en bodega [s/n]");
                             char c = sc.nextLine().charAt(0);
                             boolean inv;
-                            if (c == 's'){
+                            if (c == 's') {
                                 inv = true;
                             } else {
                                 inv = false;
@@ -71,7 +72,7 @@ public class Lab2P2_HectorSabillon {
                             //fin entradas
                             Pinturas pin = new Pinturas(nom, autor, fechap, fechaa, inv);
                             cosas.add(pin);
-                            
+
                             break;
                         case 2:
                             System.out.println("Ingrese nombre del escultor: ");
@@ -81,14 +82,14 @@ public class Lab2P2_HectorSabillon {
                             System.out.println("Ingrese fecha de inicio [dd/MM/yyyy]: ");
                             String fe = sc.nextLine();
                             String token3[] = fe.split("/");
-                            fechaes = new Date(Integer.parseInt(token3[2]), Integer.parseInt(token3[1]), Integer.parseInt(token3[0]));
+                            fechaes = new Date(Integer.parseInt(token3[2]) - 1900, Integer.parseInt(token3[1]) + 1, Integer.parseInt(token3[0]));
                             System.out.println("Ingrese departamento:"
                                     + "\n1 <- Arqueologia"
                                     + "\n2 <- Artes"
                                     + "\n3 <- Historia Moderna");
                             String de = "";
                             int dep = sc.nextInt();
-                            switch (dep){
+                            switch (dep) {
                                 case 1:
                                     de = "Arqueologia";
                                     break;
@@ -100,10 +101,10 @@ public class Lab2P2_HectorSabillon {
                                     break;
                             }
                             //fin entradas
-                            
+
                             Esculturas es = new Esculturas(esc, mat, fechaes, de);
                             cosas.add(es);
-                            
+
                             break;
                         case 3:
                             System.out.println("Ingrese dimensiones: [NUM_MEDIDA medida x NUM_MEDIDA medida]");
@@ -113,16 +114,16 @@ public class Lab2P2_HectorSabillon {
                             System.out.println("Esta a color? [s/n]");
                             char co = sc.nextLine().charAt(0);
                             boolean color;
-                            if (co == 's'){
+                            if (co == 's') {
                                 color = true;
                             } else {
                                 color = false;
                             }
                             //fin entradas
-                            
+
                             Fotografias foto = new Fotografias(medida, res, color);
                             cosas.add(foto);
-                            
+
                             break;
                         case 4:
                             System.out.println("Ingrese cantidad de palabras: ");
@@ -135,9 +136,9 @@ public class Lab2P2_HectorSabillon {
                             System.out.println("Ingrese nombre del autor: ");
                             String au = sc.nextLine();
                             //fin entradas
-                            
+
                             Escrituras escrit = new Escrituras(pal, epoca, genero, au);
-                            
+
                             break;
                     }
                     break;
@@ -148,10 +149,10 @@ public class Lab2P2_HectorSabillon {
                             + "\n3 <- Fotografia"
                             + "\n4 <- Escritura");
                     int o = sc.nextInt();
-                    switch (o){
+                    switch (o) {
                         case 1:
-                            for (int i = 0; i < cosas.size(); i++){
-                                if (cosas.get(i) instanceof Pinturas){
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Pinturas) {
                                     System.out.println(i + " <- " + cosas.get(i));
                                 }
                             }
@@ -161,8 +162,8 @@ public class Lab2P2_HectorSabillon {
                             cosas.remove(op1);
                             break;
                         case 2:
-                            for (int i = 0; i < cosas.size(); i++){
-                                if (cosas.get(i) instanceof Esculturas){
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Esculturas) {
                                     System.out.println(i + " <- " + cosas.get(i));
                                 }
                             }
@@ -172,8 +173,8 @@ public class Lab2P2_HectorSabillon {
                             cosas.remove(op2);
                             break;
                         case 3:
-                            for (int i = 0; i < cosas.size(); i++){
-                                if (cosas.get(i) instanceof Fotografias){
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Fotografias) {
                                     System.out.println(i + " <- " + cosas.get(i));
                                 }
                             }
@@ -183,8 +184,8 @@ public class Lab2P2_HectorSabillon {
                             cosas.remove(op3);
                             break;
                         case 4:
-                            for (int i = 0; i < cosas.size(); i++){
-                                if (cosas.get(i) instanceof Escrituras){
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Escrituras) {
                                     System.out.println(i + " <- " + cosas.get(i));
                                 }
                             }
@@ -202,11 +203,11 @@ public class Lab2P2_HectorSabillon {
                             + "\n3 <- Fotografia"
                             + "\n4 <- Escritura");
                     int o1 = sc.nextInt();
-                    switch (o1){
+                    switch (o1) {
                         case 1:
                             int cont1 = 1;
-                            for (int i = 0; i < cosas.size(); i++){
-                                if (cosas.get(i) instanceof Pinturas){
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Pinturas) {
                                     System.out.println(cont1 + " <- " + cosas.get(i));
                                     cont1++;
                                 }
@@ -214,8 +215,8 @@ public class Lab2P2_HectorSabillon {
                             break;
                         case 2:
                             int cont2 = 1;
-                            for (int i = 0; i < cosas.size(); i++){
-                                if (cosas.get(i) instanceof Esculturas){
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Esculturas) {
                                     System.out.println(cont2 + " <- " + cosas.get(i));
                                     cont2++;
                                 }
@@ -223,8 +224,8 @@ public class Lab2P2_HectorSabillon {
                             break;
                         case 3:
                             int cont3 = 1;
-                            for (int i = 0; i < cosas.size(); i++){
-                                if (cosas.get(i) instanceof Fotografias){
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Fotografias) {
                                     System.out.println(cont3 + " <- " + cosas.get(i));
                                     cont3++;
                                 }
@@ -232,8 +233,8 @@ public class Lab2P2_HectorSabillon {
                             break;
                         case 4:
                             int cont4 = 1;
-                            for (int i = 0; i < cosas.size(); i++){
-                                if (cosas.get(i) instanceof Escrituras){
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Escrituras) {
                                     System.out.println(cont4 + " <- " + cosas.get(i));
                                     cont4++;
                                 }
@@ -242,19 +243,78 @@ public class Lab2P2_HectorSabillon {
                     }
                     break;
                 case 4:
+                    System.out.println("---MODIFICAR---"
+                            + "\n1 <- Pintura"
+                            + "\n2<- Escultura"
+                            + "\n3 <- Fotografia"
+                            + "\n4 <- Escritura");
+                    int o2 = sc.nextInt();
+                    sc.nextLine();
+                    switch (o2) {
+                        case 1:
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Pinturas) {
+                                    System.out.println(i + "  <- " + cosas.get(i));
+                                }
+                            }
+                            System.out.println("Ingrese indice de objeto a modificar: ");
+                            int indice1 = sc.nextInt();
+                            sc.nextLine();
+                            //objeto a modificar
+
+                            System.out.println("1 <- Nombre"
+                                    + "\n2 <- Autor"
+                                    + "\n3 <- Fecha de presentacion"
+                                    + "\n4 <- Fecha de adquisicion"
+                                    + "\n5 <- Exposicion o bodega");
+                            int indice11 = sc.nextInt();
+                            sc.nextLine();
+                            switch (indice11) {
+                                case 1:
+                                    System.out.println("Ingrese nuevo nombre: ");
+                                    String nuevonom = sc.nextLine();
+                                    ((Pinturas) cosas.get(indice1)).setNombre(nuevonom);
+                                    break;
+                                case 2:
+                                    System.out.println("Ingrese nuevo autor: ");
+                                    String nuevoau = sc.nextLine();
+                                    ((Pinturas) cosas.get(indice1)).setAutor(nuevoau);
+                                    break;
+                                case 3:
+                                    System.out.println("Ingrese nueva fecha de presentacion: ");
+                                    String fp = sc.nextLine();
+                                    String token[] = fp.split("/");
+                                    fechap = new Date(Integer.parseInt(token[2]) - 1900, Integer.parseInt(token[1]) + 1, Integer.parseInt(token[0]));
+                                    
+                                    break;
+                                case 4:
+                                    System.out.println("Ingrese nueva fecha de adquisicion: ");
+                                    break;
+                                case 5:
+                                    System.out.println("Esta en exposicion o bodega: ");
+                                    break;
+                            }
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                    }
                     break;
             }
         }
-        
+
     }
 
-    public static boolean admin(String r){
-        if (r.charAt(0) == 's'){
+    public static boolean admin(String r) {
+        if (r.charAt(0) == 's') {
             return true;
-        } else if (r.charAt(0) == 'n'){
+        } else if (r.charAt(0) == 'n') {
             return false;
         }
         return false;
     }
-    
+
 }
