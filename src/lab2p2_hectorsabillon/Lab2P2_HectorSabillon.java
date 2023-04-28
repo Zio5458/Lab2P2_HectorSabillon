@@ -309,7 +309,7 @@ public class Lab2P2_HectorSabillon {
                             break;
                         case 2:
                             for (int i = 0; i < cosas.size(); i++) {
-                                if (cosas.get(i) instanceof Pinturas) {
+                                if (cosas.get(i) instanceof Esculturas) {
                                     System.out.println(i + "  <- " + cosas.get(i));
                                 }
                             }
@@ -359,9 +359,55 @@ public class Lab2P2_HectorSabillon {
                             }
                             break;
                         case 3:
-                            
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Fotografias) {
+                                    System.out.println(i + "  <- " + cosas.get(i));
+                                }
+                            }
+                            System.out.println("Ingese indice de elemento a modificar: ");
+                            int indice3 = sc.nextInt();
+                            sc.nextLine();
+                            System.out.println("1 <- Dimension"
+                                    + "\n2 <- Resolucion"
+                                    + "\n3 <- Color o Blanco y Negro");
+                            System.out.println("Ingrese opcion: ");
+                            int o4 = sc.nextInt();
+                            switch (o4) {
+                                case 1:
+                                    System.out.println("Ingrese nuevas dimensiones: ");
+                                    String nuevodim = sc.nextLine();
+                                    ((Fotografias) cosas.get(indice3)).setDimension(nuevodim);
+                                    break;
+                                case 2:
+                                    System.out.println("Ingrese nueva resolucion: ");
+                                    String nuevores = sc.nextLine();
+                                    ((Fotografias) cosas.get(indice3)).setResolucion(nuevores);
+                                    break;
+                                case 3:
+                                    System.out.println("Esta a color? [s/n]");
+                                    char co = sc.nextLine().charAt(0);
+                                    boolean color;
+                                    if (co == 's') {
+                                        color = true;
+                                    } else {
+                                        color = false;
+                                    }
+                                    ((Fotografias) cosas.get(indice3)).setColor(color);
+                                    break;
+                            }
                             break;
                         case 4:
+                            for (int i = 0; i < cosas.size(); i++) {
+                                if (cosas.get(i) instanceof Escrituras) {
+                                    System.out.println(i + "  <- " + cosas.get(i));
+                                }
+                            }
+                            System.out.println("Ingrese indice del objeto a modificar: ");
+                            int indice4 = sc.nextInt();
+                            System.out.println("1 <- Cantidad de palabras"
+                                    + "\n2 <- Epoca"
+                                    + "\n3 <- Genero"
+                                    + "\n4 <- Autor");
                             break;
                     }
                     break;
