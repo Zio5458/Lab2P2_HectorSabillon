@@ -183,10 +183,63 @@ public class Lab2P2_HectorSabillon {
                             cosas.remove(op3);
                             break;
                         case 4:
+                            for (int i = 0; i < cosas.size(); i++){
+                                if (cosas.get(i) instanceof Escrituras){
+                                    System.out.println(i + " <- " + cosas.get(i));
+                                }
+                            }
+                            System.out.println("Ingrese el indice de la escritura a eliminar: ");
+                            int op4 = sc.nextInt();
+                            sc.nextLine();
+                            cosas.remove(op4);
                             break;
                     }
                     break;
                 case 3:
+                    System.out.println("---LISTAR---"
+                            + "\n1 <- Pintura"
+                            + "\n2<- Escultura"
+                            + "\n3 <- Fotografia"
+                            + "\n4 <- Escritura");
+                    int o1 = sc.nextInt();
+                    switch (o1){
+                        case 1:
+                            int cont1 = 1;
+                            for (int i = 0; i < cosas.size(); i++){
+                                if (cosas.get(i) instanceof Pinturas){
+                                    System.out.println(cont1 + " <- " + cosas.get(i));
+                                    cont1++;
+                                }
+                            }
+                            break;
+                        case 2:
+                            int cont2 = 1;
+                            for (int i = 0; i < cosas.size(); i++){
+                                if (cosas.get(i) instanceof Esculturas){
+                                    System.out.println(cont2 + " <- " + cosas.get(i));
+                                    cont2++;
+                                }
+                            }
+                            break;
+                        case 3:
+                            int cont3 = 1;
+                            for (int i = 0; i < cosas.size(); i++){
+                                if (cosas.get(i) instanceof Fotografias){
+                                    System.out.println(cont3 + " <- " + cosas.get(i));
+                                    cont3++;
+                                }
+                            }
+                            break;
+                        case 4:
+                            int cont4 = 1;
+                            for (int i = 0; i < cosas.size(); i++){
+                                if (cosas.get(i) instanceof Escrituras){
+                                    System.out.println(cont4 + " <- " + cosas.get(i));
+                                    cont4++;
+                                }
+                            }
+                            break;
+                    }
                     break;
                 case 4:
                     break;
