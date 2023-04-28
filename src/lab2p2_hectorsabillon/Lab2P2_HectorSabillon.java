@@ -16,7 +16,28 @@ public class Lab2P2_HectorSabillon {
     static ArrayList escritos = new ArrayList();
 
     public static void main(String[] args) {
-
+        
+        System.out.println("---LOGIN---"
+                + "\nIngrese usuario: ");
+        String u = sc.nextLine();
+        System.out.println("Ingrese contrasena: ");
+        String pass = sc.nextLine();
+        System.out.println("Forma parte del personal administrativo? [s/n]: ");
+        String r = sc.nextLine();
+        
+        if (admin(r) && r.charAt(0) == 's'){
+            
+        }
+        
     }
 
+    public static boolean admin(String r){
+        if (r.charAt(0) == 's'){
+            return true;
+        } else if (r.charAt(0) == 'n'){
+            return false;
+        }
+        return false;
+    }
+    
 }
