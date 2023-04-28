@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Pinturas {
-    
-    private ArrayList pinturas = new ArrayList();
+
     private String nombre;
     private String autor;
     private Date fechap;
@@ -23,7 +22,54 @@ public class Pinturas {
         this.fechaa = fechaa;
         this.inv = inv;
     }
-    
-    
-    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public Date getFechap() {
+        return fechap;
+    }
+
+    public void setFechap(Date fechap) {
+        this.fechap = fechap;
+    }
+
+    public Date getFechaa() {
+        return fechaa;
+    }
+
+    public void setFechaa(Date fechaa) {
+        this.fechaa = fechaa;
+    }
+
+    public boolean isInv() {
+        return inv;
+    }
+
+    public void setInv(boolean inv) {
+        this.inv = inv;
+    }
+
+    @Override
+    public String toString() {
+        if (inv) {
+            return "Pinturas{" + "nombre=" + nombre + ", autor=" + autor + ", fechap=" + fechap + ", fechaa=" + fechaa + ", inv=" + "exposicion" + '}';
+        } else {
+            return "Pinturas{" + "nombre=" + nombre + ", autor=" + autor + ", fechap=" + fechap + ", fechaa=" + fechaa + ", inv=" + "bodega" + '}';
+        }
+    }
+
 }

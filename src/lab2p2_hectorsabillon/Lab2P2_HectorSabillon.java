@@ -11,8 +11,10 @@ import java.util.Date;
 public class Lab2P2_HectorSabillon {
 
     static Scanner sc = new Scanner(System.in);
+    static ArrayList cosas = new ArrayList();
     static Date fechap;
     static Date fechaa;
+    static Date fechaes;
 
     public static void main(String[] args) {
         
@@ -67,10 +69,37 @@ public class Lab2P2_HectorSabillon {
                                 inv = false;
                             }
                             //fin entradas
-                            
+                            Pinturas pin = new Pinturas(nom, autor, fechap, fechaa, inv);
+                            cosas.add(pin);
                             
                             break;
                         case 2:
+                            System.out.println("Ingrese nombre del escultor: ");
+                            String esc = sc.nextLine();
+                            System.out.println("Ingrese material de la escultura: ");
+                            String mat = sc.nextLine();
+                            System.out.println("Ingrese fecha de inicio [dd/MM/yyyy]: ");
+                            String fe = sc.nextLine();
+                            String token3[] = fe.split("/");
+                            fechaes = new Date(Integer.parseInt(token3[2]), Integer.parseInt(token3[1]), Integer.parseInt(token3[0]));
+                            System.out.println("Ingrese departamento:"
+                                    + "\n1 <- Arqueologia"
+                                    + "\n2 <- Artes"
+                                    + "\n3 <- Historia Moderna");
+                            String de;
+                            int dep = sc.nextInt();
+                            switch (dep){
+                                case 1:
+                                    de = "Arqueologia";
+                                    break;
+                                case 2:
+                                    de = "Artes";
+                                    break;
+                                case 3:
+                                    de = "Historia Moderna";
+                                    break;
+                            }
+                            //fin entradas
                             break;
                         case 3:
                             break;
