@@ -408,6 +408,31 @@ public class Lab2P2_HectorSabillon {
                                     + "\n2 <- Epoca"
                                     + "\n3 <- Genero"
                                     + "\n4 <- Autor");
+                            int o5 = sc.nextInt();
+                            sc.nextLine();
+                            switch (o5){
+                                case 1:
+                                    System.out.println("Ingrese nueva cantidad de palabras: ");
+                                    int nuevocant = sc.nextInt();
+                                    sc.nextLine();
+                                    ((Escrituras) cosas.get(indice4)).setPalabras(nuevocant);
+                                    break;
+                                case 2:
+                                    System.out.println("Ingrese nueva epoca: ");
+                                    String nuevaepo = sc.nextLine();
+                                    ((Escrituras) cosas.get(indice4)).setEpoca(nuevaepo);
+                                    break;
+                                case 3:
+                                    System.out.println("Ingrese nuevo genero: ");
+                                    String nuevogen = sc.nextLine();
+                                    ((Escrituras) cosas.get(indice4)).setGenero(nuevogen);
+                                    break;
+                                case 4:
+                                    System.out.println("Ingrese nuevo autor: ");
+                                    String nuevoautor = sc.nextLine();
+                                    ((Escrituras) cosas.get(indice4)).setAutor(nuevoautor);
+                                    break;
+                            }
                             break;
                     }
                     break;
