@@ -86,7 +86,7 @@ public class Lab2P2_HectorSabillon {
                                     + "\n1 <- Arqueologia"
                                     + "\n2 <- Artes"
                                     + "\n3 <- Historia Moderna");
-                            String de;
+                            String de = "";
                             int dep = sc.nextInt();
                             switch (dep){
                                 case 1:
@@ -100,10 +100,32 @@ public class Lab2P2_HectorSabillon {
                                     break;
                             }
                             //fin entradas
+                            
+                            Esculturas es = new Esculturas(esc, mat, fechaes, de);
+                            cosas.add(es);
+                            
                             break;
                         case 3:
+                            System.out.println("Ingrese dimensiones: [NUM_MEDIDA medida x NUM_MEDIDA medida]");
+                            String medida = sc.nextLine();
+                            System.out.println("Ingrese resolucion: [NUMxNUM]");
+                            String res = sc.nextLine();
+                            System.out.println("Esta a color? [s/n]");
+                            char co = sc.nextLine().charAt(0);
+                            boolean color;
+                            if (co == 's'){
+                                color = true;
+                            } else {
+                                color = false;
+                            }
+                            //fin entradas
+                            
+                            Fotografias foto = new Fotografias(medida, res, color);
+                            cosas.add(foto);
+                            
                             break;
                         case 4:
+                            
                             break;
                     }
                     break;
